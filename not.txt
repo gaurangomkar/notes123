@@ -1,0 +1,67 @@
+
+Cloning a Repo 
+git clone https://github.com/gaurangomkar/testing.git
+
+Files not in staging area ready to be added
+git status 
+
+we do to add into staging area
+git add
+
+To add the code into local server
+git commit -m 
+
+Gives more info about the commits which we have done
+git log
+--------------------------------------------------------------------------------------------------------
+Setting up from the command line
+Being the installation path "C:Program Files\Perforce\p4merge.exe", just run:
+
+$ git config --global diff.tool p4merge
+$ git config --global difftool.p4merge.path 'C:\Program Files\Perforce\p4merge.exe'
+$ git config --global merge.tool p4merge
+$ git config --global mergetool.p4merge.path 'C:\Program Files\Perforce\p4merge.exe'
+Possible error if other approaches have been tried before
+Apparently in earlier versions mergetool.p4merge.cmd needed to be provided instead of the path, but doesn't work anymore due to Git trying to support p4merge:
+
+setting mergetool.p4merge.cmd will not work anymore since Git has started trying to support p4merge, see libexec/git-core/git-mergetool--lib. instead it directly uses mergetool.p4merge.path
+
+If that option is already set (check if git config --global --get mergetool.p4merge.cmd prints a value), it needs to be removed:
+
+$ git config --global --unset mergetool.p4merge.cmd
+The same applies to difftool.p4merge.cmd.
+
+Editing the global configuration file
+Open ~/.gitconfig (git config --global --edit) and add or change:
+
+[merge]
+	tool = p4merge
+[mergetool "p4merge"]
+	path = C:\\Program Files\\Perforce\\p4merge.exe
+	
+------------------------------------------------------------------------------------------------------
+
+ git difftool HEAD
+ 
+ make a folder as git directory
+ git init 
+ add remote server
+ git remote add origin https://github.com/gaurangomkar/testing.git
+ 
+ Undo uncommitted changes
+ 
+ git checkout -- hungry.py
+  git checkout -- .
+  
+  
+ Comitted changes
+  git revert 3d43ac168498efdd44dc780dbf34fc4879bf53c4
+  
+  -n not comit changes
+  
+  git reset --hard commitid
+  all other changes gone
+  
+  ---------------------------------------------------------------------------------------------------------------------------
+  
+  git checkout branchname
