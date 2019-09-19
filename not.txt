@@ -65,3 +65,6 @@ Open ~/.gitconfig (git config --global --edit) and add or change:
   ---------------------------------------------------------------------------------------------------------------------------
   
   git checkout branchname
+  
+  
+  git rm --chached filename
